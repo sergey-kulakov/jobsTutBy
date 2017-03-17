@@ -3,7 +3,7 @@
         <test name="Test With Classes">
 
                 <classes>
-            <class name="SearchTest"/>
+            <class name="tests.SearchTest"/>
 
                 </classes>
         </test>
