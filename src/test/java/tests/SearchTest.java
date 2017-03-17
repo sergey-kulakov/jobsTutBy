@@ -17,7 +17,7 @@ public class SearchTest {
         MainPage mainPage=new MainPage();
         mainPage.goToMenuItem("Работа");
         SearchPage searchPage=new SearchPage();
-        searchPage.serchSameText("Специалист по тестированию");
+        searchPage.searchSameText("Специалист по тестированию");
         ResultsPage resultsPage=new ResultsPage();
         resultsPage.assertResultIsPresent("Специалист по тестированию");
 
