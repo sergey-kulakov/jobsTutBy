@@ -7,8 +7,9 @@ import org.openqa.selenium.By;
  */
 public class SearchPage extends Base {
     public void serchSameText(String searchString){
+
         driver.findElement(By.xpath("//input[@data-qa='vacancy-serp__query']")).sendKeys(searchString);
-        driver.findElement(By.xpath("@data-qa='navi-search__button']")).click();
-    }
+        driver.findElement(By.xpath("//button[@data-qa='navi-search__button']")).click();}
+
 
 }

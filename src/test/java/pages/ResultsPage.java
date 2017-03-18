@@ -9,22 +9,19 @@ import java.util.List;
 import static org.testng.Assert.*;
 
 public class ResultsPage extends Base {
-    private String lblResultLocator = "//*[contains(@class, 'b-results-list')]//a[contains(.,'%s')]";
+    private String lblResultLocator = "//div[@class='search-result-item__head']/a[contains(text(),'%s')]";
 
-    public void assertResultIsPresent(String text) {
 
-        List<WebElement> vacanciesList = driver.findElements(By.xpath(lblResultLocator));
+    public void searchByFullText(String text) {
+
+        List<WebElement> vacanciesList = driver.findElements(By.xpath(String.format(lblResultLocator,text)));
         assertFalse(vacanciesList.isEmpty());
+        System.out.println("Полных совпадений "+vacanciesList.size());
         for (WebElement vacancy : vacanciesList) {
             String vacancyTitle = vacancy.getText();
             System.out.println(vacancyTitle);
 
 
         }
-
-
-
-
-      //  new Label(By.xpath(String.format(lblResultLocator, text)), text).waitForIsElementPresent();
     }
 }

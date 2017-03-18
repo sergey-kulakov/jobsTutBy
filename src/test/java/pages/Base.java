@@ -9,19 +9,16 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Base {
-    public WebDriver driver;
+    public static WebDriver driver;
 
-    @BeforeTest
-    public void setUp() {
+
+    public static WebDriver getDriver(){
+        if(driver==null){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get("https://www.tut.by/");
-    }
-
-    @AfterTest
-    public void brorserQuit() {
-        driver.quit();
+        }
+        return driver;
     }
 }
